@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import * as z from "zod";
 import { useDebounceCallback, useDebounceValue } from "usehooks-ts";
 import { useRouter } from "next/navigation";
-import { Form, FormProvider, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { SignUpSchema } from "@/schemas/signUpSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios, { AxiosError } from "axios";
 import { ApiResponse } from "@/types/ApiResponse";
 import { toast } from "sonner";
 import {
+  Form,
   FormControl,
   FormDescription,
   FormField,
@@ -90,7 +91,7 @@ const page = () => {
           </h1>
           <p className="mb-4">Sign up to start your anonymous adventure</p>
         </div>
-        <FormProvider {...form}>
+        <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
               name="username"
@@ -155,11 +156,11 @@ const page = () => {
                   <Loader className="w-6 h-6 mr-2 animate-spin" /> Please wait
                 </>
               ) : (
-                "Signup"
+                "Sign up"
               )}
             </Button>
           </form>
-        </FormProvider>
+        </Form>
         <div className="text-center mt-4">
           <p>
             Already a member?{" "}
