@@ -97,7 +97,7 @@ export const GET = async (request: Request) => {
     return Response.json(
       {
         success: true,
-        acceptMessages: foundUser.isAcceptingMessages,
+        isAcceptingMessages: foundUser.isAcceptingMessages,
       },
       { status: 200 }
     );
